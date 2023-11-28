@@ -1,0 +1,12 @@
+# This is assuming that a database was previously loaded and is simply sending context from that database to OpenAI
+
+gpt35_response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "What's the question I want to ask?"},
+    ],
+    temperature=0, # 0 makes outputs deterministic; The closer the value is to 1, the more random the outputs are for each time you re-run.
+)
+
+print(gpt35_response.choices[0]["message"]["content"])

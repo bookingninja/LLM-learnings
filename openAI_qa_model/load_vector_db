@@ -10,3 +10,11 @@ gpt35_response = openai.ChatCompletion.create(
 )
 
 print(gpt35_response.choices[0]["message"]["content"])
+
+from IPython.display import Markdown
+
+Markdown(gpt35_response.choices[0]["message"]["content"])
+
+# check how many tokens OpenAI has used 
+gpt35_response["usage"]["total_tokens"]
+

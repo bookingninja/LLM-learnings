@@ -1,0 +1,8 @@
+#  to estimate how much it would cost to use OpenAI, you can use tiktoken library from OpenAI to get the number of tokens from your prompt.
+
+import tiktoken
+
+price_token = 0.002
+encoder = tiktoken.encoding_for_model("gpt-3.5-turbo")
+cost_to_run = len(encoder.encode(prompt_template)) / 1000 * price_token
+print(f"It would take roughly ${round(cost_to_run, 5)} to run this prompt")
